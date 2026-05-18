@@ -22,21 +22,21 @@ Array<T>::Array(const Array& src) : _data(NULL), _size(0)
 }
 
 template <typename T>
-Array<T>& Array<T>::operator=(const Array& rhs)
+Array<T>& Array<T>::operator=(const Array& src)
 {
-    if (this != &rhs)
+    if (this != &src)
     {
         if (_data != NULL)
             delete[] _data;
 
-        _size = rhs._size;
+        _size = src._size;
         if (_size == 0)
             _data = NULL;
         else
         {
             _data = new T[_size]();
             for (unsigned int i = 0; i < _size; ++i)
-                _data[i] = rhs._data[i];
+                _data[i] = src._data[i];
         }
     }
     return *this;
